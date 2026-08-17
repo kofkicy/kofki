@@ -3,20 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>koφki — Custom Chef Knives &amp; EDC, Built to Order</title>
+<title>koÏ†ki â€” Custom Chef Knives &amp; EDC, Built to Order</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" type="image/svg+xml" href="images/kofki-icon.svg">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --forge-black:#14110D;
-    --bone:#E9E2D3;
-    --ember:#C4581A;
-    --ember-dim:#8A3E12;
+    --bone:#F5EFE3;
+    --ember:#993C1D;
+    --ember-dim:#6E2C14;
     --ash:#8B8377;
     --walnut:#241C15;
     --walnut-line:#3A2E22;
-    --hairline:rgba(233,226,211,0.14);
+    --hairline:rgba(245,239,227,0.14);
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -46,7 +47,7 @@
   .brand-group{display:flex;align-items:center;gap:12px;}
   .logomark{width:34px;height:34px;flex-shrink:0;}
   .brand{
-    font-family:'Fraunces',serif;
+    font-family:'Futura','Century Gothic','Fraunces',serif;
     font-weight:600;
     font-size:23px;
     letter-spacing:0.01em;
@@ -144,7 +145,7 @@
     letter-spacing:0.02em;
     transition:background .2s ease;
   }
-  .btn-primary:hover{background:#D6641E;}
+  .btn-primary:hover{background:#B84E27;}
   .btn-ghost{
     color:var(--bone);
     font-size:14px;
@@ -157,7 +158,19 @@
   .hero-art{
     display:flex;justify-content:center;align-items:center;
   }
-  .hero-art svg{width:100%;height:auto;max-width:380px;}
+  .hero-photo-frame{
+    background:var(--bone);
+    padding:28px;
+    width:100%;
+    max-width:360px;
+    display:flex;justify-content:center;align-items:center;
+    box-shadow:0 24px 60px rgba(0,0,0,0.35);
+  }
+  .hero-photo-frame img{
+    width:100%;
+    height:auto;
+    mix-blend-mode:multiply;
+  }
 
   /* ---- section headers ---- */
   .section{padding:80px 0;}
@@ -195,11 +208,12 @@
   }
   .knife-card:hover{background:#2A2118;}
   .knife-art{
-    height:120px;
+    height:140px;
     display:flex;align-items:center;justify-content:center;
     margin-bottom:20px;
+    background:var(--bone);
   }
-  .knife-art svg{width:90%;height:auto;}
+  .knife-art img{width:100%;height:100%;object-fit:contain;padding:14px;mix-blend-mode:multiply;}
   .knife-name{
     font-family:'Fraunces',serif;
     font-weight:500;
@@ -309,7 +323,7 @@
     cursor:pointer;
     transition:background .2s ease;
   }
-  .form-submit:hover{background:#D6641E;}
+  .form-submit:hover{background:#B84E27;}
 
   footer{
     padding:32px;
@@ -339,12 +353,8 @@
 <header>
   <div class="navbar">
     <div class="brand-group">
-      <svg class="logomark" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="koφki logo">
-        <circle cx="30" cy="30" r="27" stroke="#E9E2D3" stroke-width="1.6"/>
-        <ellipse cx="30" cy="30" rx="12.5" ry="15.5" stroke="#E9E2D3" stroke-width="1.6"/>
-        <path d="M30 6 L33.5 27 L32 54 L28 54 L26.5 27 Z" fill="#C4581A"/>
-      </svg>
-      <div class="brand">ko<span>φ</span>ki</div>
+      <img class="logomark" src="images/kofki-icon.svg" alt="koÏ†ki logo">
+      <div class="brand">ko<span>Ï†</span>ki</div>
     </div>
     <nav><ul>
       <li><a href="#work">The Work</a></li>
@@ -359,23 +369,16 @@
   <div>
     <div class="eyebrow">AEB-L steel. Carbon fiber and composites. Made in Cyprus.</div>
     <h1>Chef knives and EDCs, <em>built to order,</em> never off the shelf.</h1>
-    <p class="hero-lede">koφki means "cuts" in Cypriot Greek — knives shaped to how you actually cook or carry, ground from AEB-L stainless and finished in carbon fiber or composite handles. Below are recent pieces and their price as a starting point; every commission is quoted to your blade length, grind, and handle material.</p>
+    <p class="hero-lede">koÏ†ki means "cuts" in Cypriot Greek â€” knives shaped to how you actually cook or carry, ground from AEB-L stainless and finished in carbon fiber or composite handles. Below are recent pieces and their price as a starting point; every commission is quoted to your blade length, grind, and handle material.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Start a commission</a>
       <a href="#work" class="btn-ghost">See recent work</a>
     </div>
   </div>
   <div class="hero-art">
-    <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M20 110 L230 90 L390 78 L392 84 L232 100 L60 122 L20 118 Z" fill="#E9E2D3"/>
-      <path d="M230 90 L390 78 L392 84 L232 100 Z" fill="#C4581A" opacity="0.85"/>
-      <rect x="20" y="106" width="90" height="18" rx="3" fill="#3A2E22" stroke="#8B8377" stroke-width="1"/>
-      <line x1="35" y1="106" x2="35" y2="124" stroke="#8B8377" stroke-width="1"/>
-      <line x1="50" y1="106" x2="50" y2="124" stroke="#8B8377" stroke-width="1"/>
-      <line x1="65" y1="106" x2="65" y2="124" stroke="#8B8377" stroke-width="1"/>
-      <line x1="80" y1="106" x2="80" y2="124" stroke="#8B8377" stroke-width="1"/>
-      <line x1="95" y1="106" x2="95" y2="124" stroke="#8B8377" stroke-width="1"/>
-    </svg>
+    <div class="hero-photo-frame">
+      <img src="images/knife-placeholder.jpg" alt="koÏ†ki knife photo â€” replace with a real product shot">
+    </div>
   </div>
 </section>
 
@@ -388,17 +391,22 @@
         <div class="section-eyebrow">The work</div>
         <h2>Recent commissions</h2>
       </div>
-      <p class="section-note">Every piece below has sold. Shown as a guide to grind, material, and pricing — your version will be made to your spec.</p>
+      <p class="section-note">Every piece below has sold. Shown as a guide to grind, material, and pricing â€” your version will be made to your spec.</p>
     </div>
 
     <div class="catalog-grid">
 
+      <!-- ============================================
+           KNIFE CARD â€” copy this whole block to ADD a knife.
+           Delete the whole block (from <div class="knife-card"> 
+           to its closing </div>) to REMOVE one.
+           1. Swap the img src for that knife's photo file in /images
+           2. Update the name, spec line, and price
+           3. Update the alt text to match
+      ============================================= -->
       <div class="knife-card">
         <div class="knife-art">
-          <svg viewBox="0 0 200 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 55 L130 45 L188 40 L188 46 L132 52 L30 66 L10 62 Z" fill="#E9E2D3"/>
-            <rect x="10" y="52" width="45" height="12" rx="2" fill="#8B8377"/>
-          </svg>
+          <img src="images/knife-placeholder.jpg" alt="The Petra Gyro â€” 8 inch chef's knife">
         </div>
         <div class="knife-name">The Petra Gyro</div>
         <div class="knife-spec">8&quot; chef&#39;s knife, AEB-L, black carbon fiber</div>
@@ -410,10 +418,7 @@
 
       <div class="knife-card">
         <div class="knife-art">
-          <svg viewBox="0 0 200 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 50 L100 42 L190 30 L190 38 L102 50 L28 62 L12 58 Z" fill="#E9E2D3"/>
-            <rect x="12" y="48" width="42" height="12" rx="2" fill="#8B8377"/>
-          </svg>
+          <img src="images/knife-placeholder.jpg" alt="The Akamas â€” 6 inch nakiri">
         </div>
         <div class="knife-name">The Akamas</div>
         <div class="knife-spec">6&quot; nakiri, AEB-L, marbled composite</div>
@@ -425,11 +430,7 @@
 
       <div class="knife-card">
         <div class="knife-art">
-          <svg viewBox="0 0 200 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M14 52 L90 46 L150 40 L150 46 L92 52 L34 60 L14 58 Z" fill="#E9E2D3"/>
-            <rect x="14" y="50" width="36" height="10" rx="2" fill="#8B8377"/>
-            <circle cx="90" cy="49" r="3" fill="#14110D"/>
-          </svg>
+          <img src="images/knife-placeholder.jpg" alt="The Troodos EDC â€” 3 inch folder">
         </div>
         <div class="knife-name">The Troodos EDC</div>
         <div class="knife-spec">3&quot; folder, AEB-L, carbon fiber scales</div>
@@ -441,10 +442,7 @@
 
       <div class="knife-card">
         <div class="knife-art">
-          <svg viewBox="0 0 200 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 58 L110 44 L185 34 L186 40 L112 51 L28 68 L10 64 Z" fill="#E9E2D3"/>
-            <rect x="10" y="55" width="48" height="14" rx="2" fill="#8B8377"/>
-          </svg>
+          <img src="images/knife-placeholder.jpg" alt="The Larnaka Santoku â€” 7 inch santoku">
         </div>
         <div class="knife-name">The Larnaka Santoku</div>
         <div class="knife-spec">7&quot; santoku, AEB-L, forged composite bolster</div>
@@ -456,13 +454,10 @@
 
       <div class="knife-card">
         <div class="knife-art">
-          <svg viewBox="0 0 200 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 48 L95 44 L188 42 L188 48 L96 50 L30 58 L12 55 Z" fill="#E9E2D3"/>
-            <rect x="12" y="47" width="40" height="12" rx="2" fill="#8B8377"/>
-          </svg>
+          <img src="images/knife-placeholder.jpg" alt="The Paphos Paring â€” 4 inch paring knife">
         </div>
         <div class="knife-name">The Paphos Paring</div>
-        <div class="knife-spec">4&quot; paring knife, AEB-L, forged carbon fiber</div>
+        <div class="knife-spec">4&quot; paring knife, AEB-L, black micarta</div>
         <div class="knife-foot">
           <span class="knife-price">190</span>
           <a href="#contact" class="knife-link">Inquire</a>
@@ -471,10 +466,7 @@
 
       <div class="knife-card">
         <div class="knife-art">
-          <svg viewBox="0 0 200 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M14 54 L120 40 L180 26 L182 32 L122 46 L32 64 L14 60 Z" fill="#E9E2D3"/>
-            <rect x="14" y="51" width="44" height="13" rx="2" fill="#8B8377"/>
-          </svg>
+          <img src="images/knife-placeholder.jpg" alt="The Kyrenia EDC â€” 3.5 inch fixed blade">
         </div>
         <div class="knife-name">The Kyrenia EDC</div>
         <div class="knife-spec">3.5&quot; fixed blade, AEB-L, textured G10</div>
@@ -483,6 +475,7 @@
           <a href="#contact" class="knife-link">Inquire</a>
         </div>
       </div>
+      <!-- ============ END KNIFE CARDS ============ -->
 
     </div>
   </div>
@@ -501,7 +494,7 @@
         <span class="process-mark">01</span>
         <div>
           <h3>You describe the knife</h3>
-          <p>What it's for, how it'll be used, and any steel or handle material you have in mind. No CAD file needed — a rough sketch or a few reference photos is plenty.</p>
+          <p>What it's for, how it'll be used, and any steel or handle material you have in mind. No CAD file needed â€” a rough sketch or a few reference photos is plenty.</p>
         </div>
       </li>
       <li>
@@ -515,7 +508,7 @@
         <span class="process-mark">03</span>
         <div>
           <h3>It's forged, ground, and finished by hand</h3>
-          <p>Typical turnaround is 4–10 weeks depending on the queue and complexity. You'll get photos at rough-grind and again before final finishing.</p>
+          <p>Typical turnaround is 4â€“10 weeks depending on the queue and complexity. You'll get photos at rough-grind and again before final finishing.</p>
         </div>
       </li>
       <li>
@@ -534,7 +527,7 @@
     <div class="contact-copy">
       <div class="section-eyebrow">Get in touch</div>
       <h2 style="margin-bottom:18px;">Tell me what you need built.</h2>
-      <p>Whether you already know the exact steel and profile, or just know you want something better than what's on a shelf — reach out and we'll figure out the details together.</p>
+      <p>Whether you already know the exact steel and profile, or just know you want something better than what's on a shelf â€” reach out and we'll figure out the details together.</p>
 
       <div class="contact-detail">
         <span class="contact-label">Email</span>
@@ -542,7 +535,7 @@
       </div>
       <div class="contact-detail">
         <span class="contact-label">Workshop</span>
-        <span class="contact-value">Cyprus — by appointment</span>
+        <span class="contact-value">Cyprus â€” by appointment</span>
       </div>
       <div class="contact-detail">
         <span class="contact-label">Shipping</span>
@@ -550,26 +543,36 @@
       </div>
     </div>
 
-    <form onsubmit="return false;">
+    <!--
+      CONTACT FORM â€” sends to info@kofki.cy via Formspree.
+      Replace YOUR_FORM_ID below with the ID Formspree gives you
+      (see the setup instructions I gave you separately).
+      Until you do that, this form will not actually send anything.
+    -->
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
       <div>
         <label for="name">Name</label>
-        <input id="name" type="text" placeholder="Your name" required>
+        <input id="name" name="name" type="text" placeholder="Your name" required>
       </div>
       <div>
         <label for="email">Email</label>
-        <input id="email" type="email" placeholder="you@email.com" required>
+        <input id="email" name="email" type="email" placeholder="you@email.com" required>
       </div>
       <div>
         <label for="details">What are you looking for?</label>
-        <textarea id="details" placeholder="Type of knife, intended use, any materials in mind..."></textarea>
+        <textarea id="details" name="message" placeholder="Type of knife, intended use, any materials in mind..."></textarea>
       </div>
+      <!-- Keeps the email subject line clean in your inbox -->
+      <input type="hidden" name="_subject" value="New inquiry from kofki.cy">
+      <!-- Honeypot field to cut down on spam bots -->
+      <input type="text" name="_gotcha" style="display:none">
       <button class="form-submit" type="submit">Send inquiry</button>
     </form>
   </div>
 </section>
 
 <footer>
-  koφki (κόφκει) — Cypriot Greek for &quot;cuts.&quot; Every knife built to order, none held in stock.
+  koÏ†ki (ÎºÏŒÏ†ÎºÎµÎ¹) â€” Cypriot Greek for &quot;cuts.&quot; Every knife built to order, none held in stock.
 </footer>
 
 </body>
