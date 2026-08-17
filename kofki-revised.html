@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>koφki — Custom Chef Knives & EDC, Built to Order</title>
+  <meta name="description" content="koφki makes custom chef knives and EDC blades in Cyprus, built to order from AEB-L stainless steel with carbon fiber and composite handles.">
+  <meta name="theme-color" content="#14110D">
+  <meta name="robots" content="index,follow">
+
+  <meta property="og:title" content="koφki — Custom Chef Knives & EDC">
+  <meta property="og:description" content="Custom knives made to order in Cyprus. AEB-L stainless steel, carbon fiber and composite handles.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/knives/hero-featured.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/svg+xml" href="images/brand/kofki-icon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --forge-black:#14110D;
+      --forge-deep:#0E0C09;
+      --bone:#F5EFE3;
+      --bone-soft:#E9E0D0;
+      --ember:#B84E27;
+      --ember-bright:#D86638;
+      --ember-dim:#6E2C14;
+      --ash:#9A9185;
+      --ash-light:#B9B0A3;
+      --walnut:#241C15;
+      --walnut-light:#2B2118;
+      --hairline:rgba(245,239,227,.13);
+      --hairline-strong:rgba(245,239,227,.22);
+      --shadow:0 24px 70px rgba(0,0,0,.34);
+      --max:1160px;
+      --radius:2px;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box}
+
+    html{
+      scroll-behavior:smooth;
+      scroll-padding-top:90px;
+    }
+
+    body{
+      background:var(--forge-black);
+      color:var(--bone);
+      font-family:'IBM Plex Sans',sans-serif;
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+      overflow-x:hidden;
+    }
+
+    body.menu-open{overflow:hidden}
+
+    a{color:inherit;text-decoration:none}
+    img,svg{display:block;max-width:100%}
+    button,input,textarea{font:inherit}
+
+    ::selection{
+      background:var(--ember);
+      color:var(--forge-black);
+    }
+
+    .wrap{
+      width:min(var(--max),calc(100% - 64px));
+      margin:0 auto;
+    }
+
+    .skip-link{
+      position:fixed;
+      left:16px;
+      top:-100px;
+      z-index:100;
+      background:var(--bone);
+      color:var(--forge-black);
+      padding:10px 14px;
+    }
+
+    .skip-link:focus{top:16px}
+
+    /* Header */
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(20,17,13,.88);
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--hairline);
+    }
+
+    .navbar{
+      width:min(var(--max),calc(100% - 48px));
+      min-height:76px;
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:28px;
+    }
+
+    .brand-group{
+      display:flex;
+      align-items:center;
+      gap:11px;
+      flex-shrink:0;
+    }
+
+    .logomark{
+      width:48px;
+      height:48px;
+      object-fit:contain;
+    }
+
+    .brand{
+      font-family:'Fraunces',serif;
+      font-weight:600;
+      font-size:24px;
+      line-height:1;
+      letter-spacing:-.02em;
+    }
+
+    .brand span{color:var(--ember)}
+
+    nav ul{
+      display:flex;
+      align-items:center;
+      gap:34px;
+      list-style:none;
+    }
+
+    nav a{
+      position:relative;
+      color:var(--ash-light);
+      font-size:12px;
+      font-weight:500;
+      letter-spacing:.11em;
+      text-transform:uppercase;
+      transition:color .2s ease;
+    }
+
+    nav a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-7px;
+      width:0;
+      height:1px;
+      background:var(--ember);
+      transition:width .2s ease;
+    }
+
+    nav a:hover,
+    nav a:focus-visible{color:var(--bone)}
+
+    nav a:hover::after,
+    nav a:focus-visible::after{width:100%}
+
+    .nav-cta{
+      border:1px solid var(--ember-dim);
+      padding:10px 16px;
+      color:var(--bone);
+      font-size:12px;
+      font-weight:500;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      transition:background .2s ease,border-color .2s ease,transform .2s ease;
+      white-space:nowrap;
+    }
+
+    .nav-cta:hover{
+      background:var(--ember-dim);
+      border-color:var(--ember);
+      transform:translateY(-1px);
+    }
+
+    .menu-toggle{
+      display:none;
+      width:44px;
+      height:44px;
+      border:1px solid var(--hairline-strong);
+      background:transparent;
+      color:var(--bone);
+      cursor:pointer;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .menu-toggle span,
+    .menu-toggle span::before,
+    .menu-toggle span::after{
+      display:block;
+      width:18px;
+      height:1px;
+      background:currentColor;
+      transition:transform .2s ease,opacity .2s ease;
+    }
+
+    .menu-toggle span{position:relative}
+    .menu-toggle span::before,
+    .menu-toggle span::after{
+      content:"";
+      position:absolute;
+      left:0;
+    }
+    .menu-toggle span::before{top:-6px}
+    .menu-toggle span::after{top:6px}
+
+    .menu-toggle[aria-expanded="true"] span{background:transparent}
+    .menu-toggle[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg)}
+    .menu-toggle[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg)}
+
+    /* Signature divider */
+    .blade-edge{
+      height:16px;
+      width:100%;
+      position:relative;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          transparent 0,
+          transparent 23px,
+          var(--hairline) 24px
+        );
+      background-size:100% 1px;
+      background-position:center bottom;
+      background-repeat:no-repeat;
+    }
+
+    .blade-edge::after{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      height:1px;
+      background:var(--hairline);
+    }
+
+    .blade-edge.accent::after{background:var(--ember-dim)}
+
+    /* Hero */
+    .hero{
+      width:min(var(--max),calc(100% - 64px));
+      margin:0 auto;
+      min-height:calc(100vh - 76px);
+      padding:92px 0 88px;
+      display:grid;
+      grid-template-columns:minmax(0,1.06fr) minmax(320px,.94fr);
+      gap:72px;
+      align-items:center;
+    }
+
+    .eyebrow,
+    .section-eyebrow{
+      font-family:'IBM Plex Mono',monospace;
+      font-size:11px;
+      line-height:1.4;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--ember);
+    }
+
+    .eyebrow{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:20px;
+    }
+
+    .eyebrow::before{
+      content:"";
+      width:28px;
+      height:1px;
+      flex:0 0 28px;
+      background:var(--ember);
+    }
+
+    h1,h2,h3{
+      font-family:'Fraunces',serif;
+    }
+
+    h1{
+      max-width:720px;
+      font-size:clamp(44px,6vw,72px);
+      line-height:.99;
+      letter-spacing:-.035em;
+      font-weight:600;
+      margin-bottom:26px;
+    }
+
+    h1 em{
+      color:var(--ember);
+      font-weight:300;
+      font-style:italic;
+    }
+
+    .hero-lede{
+      max-width:56ch;
+      color:var(--ash-light);
+      font-size:16px;
+      line-height:1.75;
+      margin-bottom:34px;
+    }
+
+    .hero-actions{
+      display:flex;
+      align-items:center;
+      gap:22px;
+      flex-wrap:wrap;
+    }
+
+    .btn-primary{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      padding:0 23px;
+      background:var(--ember);
+      color:var(--forge-black);
+      font-size:13px;
+      font-weight:600;
+      letter-spacing:.03em;
+      transition:background .2s ease,transform .2s ease,box-shadow .2s ease;
+    }
+
+    .btn-primary:hover{
+      background:var(--ember-bright);
+      transform:translateY(-2px);
+      box-shadow:0 10px 28px rgba(184,78,39,.18);
+    }
+
+    .btn-ghost{
+      color:var(--bone);
+      font-size:13px;
+      border-bottom:1px solid var(--hairline-strong);
+      padding-bottom:3px;
+      transition:border-color .2s ease,color .2s ease;
+    }
+
+    .btn-ghost:hover{
+      border-color:var(--ember);
+      color:var(--ember);
+    }
+
+    .hero-note{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-top:30px;
+      color:var(--ash);
+      font-family:'IBM Plex Mono',monospace;
+      font-size:10px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .hero-note::before{
+      content:"";
+      width:7px;
+      height:7px;
+      border:1px solid var(--ember);
+      border-radius:50%;
+    }
+
+    .hero-art{
+      position:relative;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .hero-art::before{
+      content:"";
+      position:absolute;
+      width:84%;
+      aspect-ratio:1;
+      border:1px solid var(--hairline);
+      transform:rotate(45deg);
+    }
+
+    .hero-photo-frame{
+      position:relative;
+      z-index:1;
+      width:min(100%,430px);
+      padding:24px;
+      background:var(--bone);
+      box-shadow:var(--shadow);
+      transform:rotate(-1.2deg);
+      transition:transform .4s ease;
+    }
+
+    .hero-photo-frame:hover{transform:rotate(0deg) translateY(-4px)}
+
+    .hero-photo-frame img{
+      width:100%;
+      aspect-ratio:4/5;
+      object-fit:cover;
+      object-position:center;
+      mix-blend-mode:multiply;
+    }
+
+    .hero-stamp{
+      position:absolute;
+      z-index:2;
+      right:-18px;
+      bottom:24px;
+      padding:12px 14px;
+      background:var(--forge-black);
+      border:1px solid var(--hairline-strong);
+      color:var(--bone);
+      font-family:'IBM Plex Mono',monospace;
+      font-size:10px;
+      line-height:1.5;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    /* Sections */
+    .section{padding:100px 0}
+
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:32px;
+      margin-bottom:44px;
+    }
+
+    .section-eyebrow{margin-bottom:9px}
+
+    h2{
+      font-size:clamp(32px,4vw,42px);
+      font-weight:500;
+      line-height:1.05;
+      letter-spacing:-.025em;
+    }
+
+    .section-note{
+      max-width:38ch;
+      color:var(--ash);
+      font-size:13px;
+      line-height:1.7;
+      text-align:right;
+    }
+
+    /* Catalog */
+    .catalog-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1px;
+      background:var(--hairline);
+      border:1px solid var(--hairline);
+    }
+
+    .knife-card{
+      position:relative;
+      background:var(--walnut);
+      padding:22px 22px 24px;
+      display:flex;
+      flex-direction:column;
+      min-height:380px;
+      transition:background .25s ease,transform .25s ease;
+    }
+
+    .knife-card:hover{
+      background:var(--walnut-light);
+      transform:translateY(-3px);
+      z-index:2;
+    }
+
+    .knife-art{
+      position:relative;
+      height:210px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-bottom:23px;
+      overflow:hidden;
+      background:var(--bone);
+    }
+
+    .knife-art::after{
+      content:"VIEWED / SOLD";
+      position:absolute;
+      top:10px;
+      right:10px;
+      padding:4px 7px;
+      border:1px solid rgba(20,17,13,.18);
+      color:rgba(20,17,13,.56);
+      font-family:'IBM Plex Mono',monospace;
+      font-size:8px;
+      letter-spacing:.08em;
+    }
+
+    .knife-art img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      padding:15px;
+      mix-blend-mode:multiply;
+      transition:transform .35s ease;
+    }
+
+    .knife-card:hover .knife-art img{transform:scale(1.035)}
+
+    .knife-name{
+      font-family:'Fraunces',serif;
+      font-weight:500;
+      font-size:21px;
+      line-height:1.2;
+      margin-bottom:7px;
+    }
+
+    .knife-spec{
+      color:var(--ash);
+      font-size:12px;
+      line-height:1.65;
+      margin-bottom:22px;
+      flex-grow:1;
+    }
+
+    .knife-foot{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:14px;
+      padding-top:15px;
+      border-top:1px solid var(--hairline);
+    }
+
+    .knife-price{
+      font-family:'IBM Plex Mono',monospace;
+      font-size:14px;
+      color:var(--bone);
+    }
+
+    .knife-price::before{
+      content:"€ ";
+      color:var(--ash);
+    }
+
+    .knife-link{
+      font-size:11px;
+      letter-spacing:.09em;
+      text-transform:uppercase;
+      color:var(--ember);
+      border-bottom:1px solid transparent;
+      transition:border-color .2s ease;
+    }
+
+    .knife-link:hover{border-color:var(--ember)}
+
+    /* Process */
+    .process{
+      background:var(--walnut);
+      border-top:1px solid var(--hairline);
+      border-bottom:1px solid var(--hairline);
+    }
+
+    .process-inner{
+      padding:100px 0;
+      display:grid;
+      grid-template-columns:.82fr 1.18fr;
+      gap:90px;
+      align-items:start;
+    }
+
+    .process-intro{
+      position:sticky;
+      top:112px;
+    }
+
+    .process-intro p{
+      color:var(--ash);
+      max-width:34ch;
+      font-size:14px;
+      line-height:1.75;
+      margin-top:20px;
+    }
+
+    .process-list{list-style:none}
+
+    .process-list li{
+      display:grid;
+      grid-template-columns:56px 1fr;
+      gap:20px;
+      padding:25px 0;
+      border-top:1px solid var(--hairline);
+    }
+
+    .process-list li:last-child{border-bottom:1px solid var(--hairline)}
+
+    .process-mark{
+      font-family:'IBM Plex Mono',monospace;
+      color:var(--ember);
+      font-size:12px;
+      padding-top:3px;
+    }
+
+    .process-list h3{
+      font-weight:500;
+      font-size:19px;
+      line-height:1.25;
+      margin-bottom:7px;
+    }
+
+    .process-list p{
+      color:var(--ash);
+      font-size:13px;
+      line-height:1.7;
+      max-width:56ch;
+    }
+
+    /* Contact */
+    .contact-inner{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:90px;
+      align-items:start;
+    }
+
+    .contact-copy p{
+      color:var(--ash);
+      font-size:14px;
+      line-height:1.75;
+      max-width:42ch;
+      margin:20px 0 30px;
+    }
+
+    .contact-detail{
+      display:flex;
+      align-items:baseline;
+      gap:18px;
+      padding:15px 0;
+      border-top:1px solid var(--hairline);
+    }
+
+    .contact-detail:last-child{border-bottom:1px solid var(--hairline)}
+
+    .contact-label{
+      min-width:82px;
+      color:var(--ash);
+      font-family:'IBM Plex Mono',monospace;
+      font-size:10px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .contact-value{font-size:14px}
+    .contact-value.link{
+      color:var(--ember);
+      transition:color .2s ease;
+    }
+    .contact-value.link:hover{color:var(--ember-bright)}
+
+    form{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      padding:28px;
+      background:var(--walnut);
+      border:1px solid var(--hairline);
+    }
+
+    .form-intro{
+      color:var(--ash);
+      font-size:12px;
+      margin-bottom:2px;
+    }
+
+    label{
+      display:block;
+      color:var(--ash);
+      font-family:'IBM Plex Mono',monospace;
+      font-size:10px;
+      letter-spacing:.09em;
+      text-transform:uppercase;
+      margin-bottom:8px;
+    }
+
+    input,textarea{
+      width:100%;
+      background:var(--forge-deep);
+      border:1px solid var(--hairline-strong);
+      border-radius:0;
+      color:var(--bone);
+      font-family:'IBM Plex Sans',sans-serif;
+      font-size:14px;
+      padding:13px 14px;
+      transition:border-color .2s ease,background .2s ease;
+    }
+
+    input::placeholder,
+    textarea::placeholder{color:#70685F}
+
+    input:focus,
+    textarea:focus{
+      outline:none;
+      border-color:var(--ember);
+      background:#12100C;
+    }
+
+    textarea{
+      resize:vertical;
+      min-height:130px;
+    }
+
+    .form-submit{
+      align-self:flex-start;
+      margin-top:2px;
+      border:0;
+      cursor:pointer;
+      background:var(--ember);
+      color:var(--forge-black);
+      font-size:13px;
+      font-weight:600;
+      letter-spacing:.03em;
+      padding:13px 26px;
+      transition:background .2s ease,transform .2s ease;
+    }
+
+    .form-submit:hover{
+      background:var(--ember-bright);
+      transform:translateY(-1px);
+    }
+
+    .form-fineprint{
+      color:#71695F;
+      font-size:10px;
+      line-height:1.5;
+    }
+
+    /* Footer */
+    footer{
+      background:var(--bone);
+      color:var(--forge-black);
+      padding:62px 32px 42px;
+      text-align:center;
+    }
+
+    .footer-wordmark{
+      width:180px;
+      margin:0 auto 18px;
+    }
+
+    .footer-tagline{
+      color:#5A5650;
+      font-size:11px;
+      letter-spacing:.04em;
+    }
+
+    .footer-location{
+      color:#7A746B;
+      font-family:'IBM Plex Mono',monospace;
+      font-size:9px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      margin-top:12px;
+    }
+
+    /* Motion */
+    @media (prefers-reduced-motion:no-preference){
+      .reveal{
+        opacity:0;
+        transform:translateY(14px);
+        animation:reveal .7s ease forwards;
+      }
+
+      .reveal.delay-1{animation-delay:.08s}
+      .reveal.delay-2{animation-delay:.16s}
+      .reveal.delay-3{animation-delay:.24s}
+
+      @keyframes reveal{
+        to{opacity:1;transform:none}
+      }
+    }
+
+    /* Tablet */
+    @media (max-width:960px){
+      .hero{
+        grid-template-columns:1fr;
+        gap:55px;
+        padding-top:72px;
+      }
+
+      .hero-art{order:-1}
+
+      .hero-photo-frame{width:min(100%,390px)}
+
+      .catalog-grid{grid-template-columns:repeat(2,1fr)}
+
+      .process-inner,
+      .contact-inner{
+        grid-template-columns:1fr;
+        gap:50px;
+      }
+
+      .process-intro{position:static}
+
+      .section-note{text-align:left}
+
+      nav ul{gap:22px}
+    }
+
+    /* Mobile */
+    @media (max-width:700px){
+      .wrap,
+      .hero{
+        width:min(var(--max),calc(100% - 40px));
+      }
+
+      .navbar{
+        width:calc(100% - 40px);
+        min-height:68px;
+      }
+
+      .logomark{
+        width:42px;
+        height:42px;
+      }
+
+      .brand{font-size:22px}
+
+      .navbar nav,
+      .navbar .nav-cta{display:none}
+
+      .menu-toggle{display:flex}
+
+      .mobile-nav{
+        display:none;
+        position:fixed;
+        inset:69px 0 0;
+        z-index:40;
+        background:rgba(14,12,9,.98);
+        padding:30px 20px;
+        border-top:1px solid var(--hairline);
+      }
+
+      .mobile-nav.open{display:block}
+
+      .mobile-nav ul{
+        list-style:none;
+        display:flex;
+        flex-direction:column;
+        gap:0;
+      }
+
+      .mobile-nav li{border-bottom:1px solid var(--hairline)}
+
+      .mobile-nav a{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        padding:19px 0;
+        font-family:'Fraunces',serif;
+        font-size:27px;
+      }
+
+      .mobile-nav a::after{
+        content:"↗";
+        color:var(--ember);
+        font-family:'IBM Plex Mono',monospace;
+        font-size:15px;
+      }
+
+      .mobile-nav .mobile-cta{
+        margin-top:24px;
+        background:var(--ember);
+        color:var(--forge-black);
+        justify-content:center;
+        font-family:'IBM Plex Sans',sans-serif;
+        font-size:13px;
+        font-weight:600;
+        letter-spacing:.05em;
+        text-transform:uppercase;
+      }
+
+      .mobile-nav .mobile-cta::after{display:none}
+
+      .hero{
+        min-height:auto;
+        padding:58px 0 70px;
+        gap:42px;
+      }
+
+      .hero-art::before{width:78%}
+
+      .hero-photo-frame{
+        padding:16px;
+      }
+
+      .hero-stamp{
+        right:-5px;
+        bottom:15px;
+      }
+
+      h1{
+        font-size:clamp(40px,12vw,58px);
+      }
+
+      .hero-lede{
+        font-size:15px;
+        line-height:1.7;
+      }
+
+      .section{padding:72px 0}
+
+      .section-head{
+        display:block;
+        margin-bottom:30px;
+      }
+
+      .section-note{margin-top:15px}
+
+      .catalog-grid{grid-template-columns:1fr}
+
+      .knife-card{min-height:0}
+
+      .knife-art{height:240px}
+
+      .process-inner{padding:72px 0}
+
+      .process-list li{
+        grid-template-columns:40px 1fr;
+        gap:12px;
+      }
+
+      .contact-inner{gap:40px}
+
+      form{padding:20px}
+
+      footer{padding:50px 20px 36px}
+    }
+
+    @media (max-width:420px){
+      .hero-actions{
+        align-items:stretch;
+        flex-direction:column;
+      }
+
+      .btn-primary{
+        width:100%;
+      }
+
+      .hero-stamp{font-size:8px}
+
+      .contact-detail{
+        align-items:flex-start;
+        flex-direction:column;
+        gap:5px;
+      }
+
+      .contact-label{min-width:0}
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header>
+    <div class="navbar">
+      <a href="#" class="brand-group" aria-label="koφki home">
+        <img class="logomark" src="images/brand/kofki-icon.svg" alt="koφki logo">
+        <div class="brand">ko<span>φ</span>ki</div>
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <ul>
+          <li><a href="#work">The Work</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a href="#contact" class="nav-cta">Commission a knife</a>
+
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span>
+      </button>
+    </div>
+
+    <div class="mobile-nav" id="mobile-menu">
+      <ul>
+        <li><a href="#work">The Work</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact" class="mobile-cta">Commission a knife</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <div class="eyebrow reveal">AEB-L steel · Carbon fiber & composites · Made in Cyprus</div>
+
+        <h1 id="hero-title" class="reveal delay-1">
+          Knives built for the way <em>you</em> use them.
+        </h1>
+
+        <p class="hero-lede reveal delay-2">
+          koφki means “cuts” in Cypriot Greek — knives shaped to how you actually cook or carry,
+          ground from AEB-L stainless and finished in carbon fiber or composite handles.
+          Every commission is quoted to your blade length, grind, and handle material.
+        </p>
+
+        <div class="hero-actions reveal delay-3">
+          <a href="#contact" class="btn-primary">Start a commission</a>
+          <a href="#work" class="btn-ghost">See recent work</a>
+        </div>
+
+        <div class="hero-note">Built to order · No off-the-shelf stock</div>
+      </div>
+
+      <div class="hero-art">
+        <div class="hero-photo-frame">
+          <img
+            src="images/knives/hero-featured.jpg"
+            alt="Featured koφki custom knife"
+            fetchpriority="high"
+          >
+        </div>
+        <div class="hero-stamp">Handmade<br>in Cyprus</div>
+      </div>
+    </section>
+
+    <div class="blade-edge accent" aria-hidden="true"></div>
+
+    <section class="section" id="work" aria-labelledby="work-title">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="section-eyebrow">The work</div>
+            <h2 id="work-title">Recent commissions</h2>
+          </div>
+
+          <p class="section-note">
+            Every piece below has sold. Shown as a guide to grind, material, and pricing —
+            your version will be made to your specification.
+          </p>
+        </div>
+
+        <div class="catalog-grid">
+
+          <article class="knife-card">
+            <div class="knife-art">
+              <img src="images/knives/petra-gyro.jpg" alt="The Petra Gyro — 8 inch chef's knife" loading="lazy">
+            </div>
+            <h3 class="knife-name">The Petra Gyro</h3>
+            <p class="knife-spec">8&quot; chef's knife · AEB-L · black carbon fiber</p>
+            <div class="knife-foot">
+              <span class="knife-price">420</span>
+              <a href="#contact" class="knife-link" aria-label="Inquire about The Petra Gyro">Inquire</a>
+            </div>
+          </article>
+
+          <article class="knife-card">
+            <div class="knife-art">
+              <img src="images/knives/akamas.jpg" alt="The Akamas — 6 inch nakiri" loading="lazy">
+            </div>
+            <h3 class="knife-name">The Akamas</h3>
+            <p class="knife-spec">6&quot; nakiri · AEB-L · marbled composite</p>
+            <div class="knife-foot">
+              <span class="knife-price">340</span>
+              <a href="#contact" class="knife-link" aria-label="Inquire about The Akamas">Inquire</a>
+            </div>
+          </article>
+
+          <article class="knife-card">
+            <div class="knife-art">
+              <img src="images/knives/troodos-edc.jpg" alt="The Troodos EDC — 3 inch folder" loading="lazy">
+            </div>
+            <h3 class="knife-name">The Troodos EDC</h3>
+            <p class="knife-spec">3&quot; folder · AEB-L · carbon fiber scales</p>
+            <div class="knife-foot">
+              <span class="knife-price">260</span>
+              <a href="#contact" class="knife-link" aria-label="Inquire about The Troodos EDC">Inquire</a>
+            </div>
+          </article>
+
+          <article class="knife-card">
+            <div class="knife-art">
+              <img src="images/knives/larnaka-santoku.jpg" alt="The Larnaka Santoku — 7 inch santoku" loading="lazy">
+            </div>
+            <h3 class="knife-name">The Larnaka Santoku</h3>
+            <p class="knife-spec">7&quot; santoku · AEB-L · forged composite bolster</p>
+            <div class="knife-foot">
+              <span class="knife-price">380</span>
+              <a href="#contact" class="knife-link" aria-label="Inquire about The Larnaka Santoku">Inquire</a>
+            </div>
+          </article>
+
+          <article class="knife-card">
+            <div class="knife-art">
+              <img src="images/knives/paphos-paring.jpg" alt="The Paphos Paring — 4 inch paring knife" loading="lazy">
+            </div>
+            <h3 class="knife-name">The Paphos Paring</h3>
+            <p class="knife-spec">4&quot; paring knife · AEB-L · black micarta</p>
+            <div class="knife-foot">
+              <span class="knife-price">190</span>
+              <a href="#contact" class="knife-link" aria-label="Inquire about The Paphos Paring">Inquire</a>
+            </div>
+          </article>
+
+          <article class="knife-card">
+            <div class="knife-art">
+              <img src="images/knives/kyrenia-edc.jpg" alt="The Kyrenia EDC — 3.5 inch fixed blade" loading="lazy">
+            </div>
+            <h3 class="knife-name">The Kyrenia EDC</h3>
+            <p class="knife-spec">3.5&quot; fixed blade · AEB-L · textured G10</p>
+            <div class="knife-foot">
+              <span class="knife-price">225</span>
+              <a href="#contact" class="knife-link" aria-label="Inquire about The Kyrenia EDC">Inquire</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="blade-edge" aria-hidden="true"></div>
+
+    <section class="process" id="process" aria-labelledby="process-title">
+      <div class="wrap process-inner">
+        <div class="process-intro">
+          <div class="section-eyebrow">How a commission works</div>
+          <h2 id="process-title">From sketch to sheath</h2>
+          <p>
+            No complicated brief required. Start with what you want the knife to do;
+            the details can be worked out together.
+          </p>
+        </div>
+
+        <ol class="process-list">
+          <li>
+            <span class="process-mark">01</span>
+            <div>
+              <h3>You describe the knife</h3>
+              <p>
+                What it's for, how it'll be used, and any steel or handle material you have in mind.
+                No CAD file needed — a rough sketch or a few reference photos is plenty.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <span class="process-mark">02</span>
+            <div>
+              <h3>You get a quote and timeline</h3>
+              <p>
+                Every piece is priced to its steel, handle material, and hours at the forge.
+                Most commissions are quoted within a few days of a first conversation.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <span class="process-mark">03</span>
+            <div>
+              <h3>It's forged, ground, and finished by hand</h3>
+              <p>
+                Typical turnaround is 4–10 weeks depending on the queue and complexity.
+                You'll get photos at rough-grind and again before final finishing.
+              </p>
+            </div>
+          </li>
+
+          <li>
+            <span class="process-mark">04</span>
+            <div>
+              <h3>It ships sharp, with a fitted saya or sheath</h3>
+              <p>
+                Every knife leaves the workshop in Cyprus hand-sharpened, with a fitted blade cover included.
+                Shipping is standard across the EU, with UK, US, and AU available on request.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="wrap contact-inner">
+        <div class="contact-copy">
+          <div class="section-eyebrow">Get in touch</div>
+          <h2 id="contact-title">Tell me what you need built.</h2>
+
+          <p>
+            Whether you already know the exact steel and profile, or just know you want
+            something better than what's on a shelf — reach out and we'll figure out
+            the details together.
+          </p>
+
+          <div class="contact-detail">
+            <span class="contact-label">Email</span>
+            <a href="mailto:info@kofki.cy" class="contact-value link">info@kofki.cy</a>
+          </div>
+
+          <div class="contact-detail">
+            <span class="contact-label">Workshop</span>
+            <span class="contact-value">Cyprus — by appointment</span>
+          </div>
+
+          <div class="contact-detail">
+            <span class="contact-label">Shipping</span>
+            <span class="contact-value">EU-wide standard · UK / US / AU on request</span>
+          </div>
+        </div>
+
+        <!--
+          IMPORTANT:
+          Replace YOUR_FORM_ID with the Formspree form ID connected to info@kofki.cy.
+        -->
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <p class="form-intro">Tell me a little about the knife you're imagining.</p>
+
+          <div>
+            <label for="name">Name</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Your name"
+              autocomplete="name"
+              required
+            >
+          </div>
+
+          <div>
+            <label for="email">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="you@email.com"
+              autocomplete="email"
+              required
+            >
+          </div>
+
+          <div>
+            <label for="details">What are you looking for?</label>
+            <textarea
+              id="details"
+              name="message"
+              placeholder="Type of knife, intended use, approximate size, materials in mind..."
+              required
+            ></textarea>
+          </div>
+
+          <input type="hidden" name="_subject" value="New inquiry from kofki.cy">
+
+          <!-- Honeypot spam protection -->
+          <input
+            type="text"
+            name="_gotcha"
+            tabindex="-1"
+            autocomplete="off"
+            style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0"
+            aria-hidden="true"
+          >
+
+          <button class="form-submit" type="submit">Send inquiry</button>
+
+          <p class="form-fineprint">
+            I'll get back to you with questions, options, and a quote.
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <img
+      class="footer-wordmark"
+      src="images/brand/kofki-wordmark-footer.svg"
+      alt="koφki — κόφκει"
+      loading="lazy"
+    >
+    <p class="footer-tagline">Cypriot Greek for “cuts.” Every knife built to order, none held in stock.</p>
+    <p class="footer-location">Handmade in Cyprus</p>
+  </footer>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const mobileLinks = document.querySelectorAll('.mobile-nav a');
+
+    function closeMenu() {
+      mobileNav.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Open menu');
+      document.body.classList.remove('menu-open');
+    }
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+      document.body.classList.toggle('menu-open', isOpen);
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 700) closeMenu();
+    });
+  </script>
+</body>
+</html>
