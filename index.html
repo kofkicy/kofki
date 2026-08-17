@@ -6,7 +6,7 @@
 <title>koÏ†ki â€” Custom Chef Knives &amp; EDC, Built to Order</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="icon" type="image/svg+xml" href="images/kofki-icon.svg">
+<link rel="icon" type="image/svg+xml" href="images/brand/kofki-icon.svg">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -326,9 +326,17 @@
   .form-submit:hover{background:#B84E27;}
 
   footer{
-    padding:32px;
+    background:var(--bone);
+    padding:56px 32px 40px;
     text-align:center;
-    color:var(--ash);
+  }
+  .footer-wordmark{
+    width:100%;
+    max-width:150px;
+    margin:0 auto 18px;
+  }
+  .footer-tagline{
+    color:#5A5650;
     font-size:12px;
     letter-spacing:0.04em;
   }
@@ -353,7 +361,7 @@
 <header>
   <div class="navbar">
     <div class="brand-group">
-      <img class="logomark" src="images/kofki-icon.svg" alt="koÏ†ki logo">
+      <img class="logomark" src="images/brand/kofki-icon.svg" alt="koÏ†ki logo">
       <div class="brand">ko<span>Ï†</span>ki</div>
     </div>
     <nav><ul>
@@ -377,7 +385,7 @@
   </div>
   <div class="hero-art">
     <div class="hero-photo-frame">
-      <img src="images/knife-placeholder.jpg" alt="koÏ†ki knife photo â€” replace with a real product shot">
+      <img src="images/knives/hero-featured.jpg" alt="koÏ†ki knife photo â€” replace with a real product shot">
     </div>
   </div>
 </section>
@@ -400,13 +408,15 @@
            KNIFE CARD â€” copy this whole block to ADD a knife.
            Delete the whole block (from <div class="knife-card"> 
            to its closing </div>) to REMOVE one.
-           1. Swap the img src for that knife's photo file in /images
-           2. Update the name, spec line, and price
-           3. Update the alt text to match
+           1. Upload the new knife's photo into images/knives/
+              (give it a short filename, e.g. my-new-knife.jpg)
+           2. Point the img src at images/knives/my-new-knife.jpg
+           3. Update the name, spec line, and price
+           4. Update the alt text to match
       ============================================= -->
       <div class="knife-card">
         <div class="knife-art">
-          <img src="images/knife-placeholder.jpg" alt="The Petra Gyro â€” 8 inch chef's knife">
+          <img src="images/knives/petra-gyro.jpg" alt="The Petra Gyro â€” 8 inch chef's knife">
         </div>
         <div class="knife-name">The Petra Gyro</div>
         <div class="knife-spec">8&quot; chef&#39;s knife, AEB-L, black carbon fiber</div>
@@ -418,7 +428,7 @@
 
       <div class="knife-card">
         <div class="knife-art">
-          <img src="images/knife-placeholder.jpg" alt="The Akamas â€” 6 inch nakiri">
+          <img src="images/knives/akamas.jpg" alt="The Akamas â€” 6 inch nakiri">
         </div>
         <div class="knife-name">The Akamas</div>
         <div class="knife-spec">6&quot; nakiri, AEB-L, marbled composite</div>
@@ -430,7 +440,7 @@
 
       <div class="knife-card">
         <div class="knife-art">
-          <img src="images/knife-placeholder.jpg" alt="The Troodos EDC â€” 3 inch folder">
+          <img src="images/knives/troodos-edc.jpg" alt="The Troodos EDC â€” 3 inch folder">
         </div>
         <div class="knife-name">The Troodos EDC</div>
         <div class="knife-spec">3&quot; folder, AEB-L, carbon fiber scales</div>
@@ -442,7 +452,7 @@
 
       <div class="knife-card">
         <div class="knife-art">
-          <img src="images/knife-placeholder.jpg" alt="The Larnaka Santoku â€” 7 inch santoku">
+          <img src="images/knives/larnaka-santoku.jpg" alt="The Larnaka Santoku â€” 7 inch santoku">
         </div>
         <div class="knife-name">The Larnaka Santoku</div>
         <div class="knife-spec">7&quot; santoku, AEB-L, forged composite bolster</div>
@@ -454,7 +464,7 @@
 
       <div class="knife-card">
         <div class="knife-art">
-          <img src="images/knife-placeholder.jpg" alt="The Paphos Paring â€” 4 inch paring knife">
+          <img src="images/knives/paphos-paring.jpg" alt="The Paphos Paring â€” 4 inch paring knife">
         </div>
         <div class="knife-name">The Paphos Paring</div>
         <div class="knife-spec">4&quot; paring knife, AEB-L, black micarta</div>
@@ -466,7 +476,7 @@
 
       <div class="knife-card">
         <div class="knife-art">
-          <img src="images/knife-placeholder.jpg" alt="The Kyrenia EDC â€” 3.5 inch fixed blade">
+          <img src="images/knives/kyrenia-edc.jpg" alt="The Kyrenia EDC â€” 3.5 inch fixed blade">
         </div>
         <div class="knife-name">The Kyrenia EDC</div>
         <div class="knife-spec">3.5&quot; fixed blade, AEB-L, textured G10</div>
@@ -572,7 +582,8 @@
 </section>
 
 <footer>
-  koÏ†ki (ÎºÏŒÏ†ÎºÎµÎ¹) â€” Cypriot Greek for &quot;cuts.&quot; Every knife built to order, none held in stock.
+  <img class="footer-wordmark" src="images/brand/kofki-wordmark.svg" alt="koÏ†ki â€” ÎºÏŒÏ†ÎºÎµÎ¹">
+  <p class="footer-tagline">Cypriot Greek for &quot;cuts.&quot; Every knife built to order, none held in stock.</p>
 </footer>
 
 </body>
