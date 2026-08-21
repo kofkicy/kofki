@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Journal — koφki</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" type="image/svg+xml" href="images/brand/kofki-icon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forge-black:#14110D;
+    --bone:#F5EFE3;
+    --ember:#993C1D;
+    --ember-dim:#6E2C14;
+    --ash:#8B8377;
+    --walnut:#241C15;
+    --walnut-line:#3A2E22;
+    --hairline:rgba(245,239,227,0.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--forge-black);
+    color:var(--bone);
+    font-family:'IBM Plex Sans',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img,svg{display:block;max-width:100%;}
+
+  .wrap{max-width:1120px;margin:0 auto;padding:0 32px;}
+
+  /* ---- nav (same as homepage) ---- */
+  header{
+    position:sticky;top:0;z-index:20;
+    background:rgba(20,17,13,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--hairline);
+  }
+  .navbar{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px 32px;max-width:1120px;margin:0 auto;
+  }
+  .header-wordmark{height:40px;width:auto;display:block;}
+  nav ul{display:flex;gap:36px;list-style:none;}
+  nav a{
+    font-size:13px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ash);
+    transition:color .2s ease;
+  }
+  nav a:hover{color:var(--bone);}
+  nav a.current{color:var(--bone);border-bottom:1px solid var(--ember);}
+  .nav-cta{
+    border:1px solid var(--ember-dim);
+    padding:9px 18px;
+    font-size:13px;
+    letter-spacing:0.05em;
+    color:var(--bone);
+    transition:background .2s ease,border-color .2s ease;
+  }
+  .nav-cta:hover{background:var(--ember-dim);border-color:var(--ember);}
+
+  .blade-edge{
+    height:14px;width:100%;
+    background-image:repeating-linear-gradient(90deg, var(--hairline) 0px, var(--hairline) 1px, transparent 1px, transparent 24px);
+    background-position:bottom;background-size:100% 1px;background-repeat:no-repeat;
+    position:relative;margin:0;
+  }
+  .blade-edge::before{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--hairline);}
+  .blade-edge.accent::before{background:var(--ember-dim);}
+
+  /* ---- journal intro ---- */
+  .journal-hero{
+    padding:88px 32px 56px;
+    max-width:1120px;margin:0 auto;
+  }
+  .section-eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--ember);margin-bottom:14px;
+  }
+  h1{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:44px;
+    line-height:1.08;
+    letter-spacing:-0.01em;
+    margin-bottom:18px;
+    max-width:16ch;
+  }
+  .journal-hero p{
+    color:var(--ash);
+    font-size:16px;
+    max-width:56ch;
+  }
+
+  /* ---- entry list ---- */
+  .section{padding:0 0 96px;}
+  .entry-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--hairline);
+    border:1px solid var(--hairline);
+  }
+  .entry-card{
+    background:var(--walnut);
+    padding:32px 28px;
+    display:flex;flex-direction:column;
+    transition:background .25s ease;
+  }
+  .entry-card:hover{background:#2A2118;}
+  .entry-tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;letter-spacing:0.08em;text-transform:uppercase;
+    color:var(--ember);margin-bottom:14px;
+  }
+  .entry-title{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    font-size:21px;
+    margin-bottom:10px;
+    line-height:1.25;
+  }
+  .entry-teaser{
+    color:var(--ash);
+    font-size:14px;
+    flex-grow:1;
+    margin-bottom:20px;
+  }
+  .entry-link{
+    font-size:12px;letter-spacing:0.06em;text-transform:uppercase;
+    color:var(--ember);
+    border-bottom:1px solid transparent;
+    align-self:flex-start;
+  }
+  .entry-link:hover{border-color:var(--ember);}
+
+  .entry-card.coming-soon{opacity:0.55;}
+  .entry-card.coming-soon .entry-link{color:var(--ash);}
+
+  footer{background:var(--bone);padding:56px 32px 40px;text-align:center;}
+  .footer-wordmark{width:100%;max-width:260px;margin:0 auto;}
+
+  @media (max-width:860px){
+    .entry-grid{grid-template-columns:1fr 1fr;}
+    nav ul{display:none;}
+    h1{font-size:32px;}
+  }
+  @media (max-width:560px){
+    .entry-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <a href="index.html" class="header-brand-link">
+      <img class="header-wordmark" src="images/brand/kofki-wordmark-header.svg" alt="koφki">
+    </a>
+    <nav><ul>
+      <li><a href="index.html#work">The Work</a></li>
+      <li><a href="index.html#process">Process</a></li>
+      <li><a href="journal.html" class="current">Journal</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul></nav>
+    <a href="index.html#contact" class="nav-cta">Commission a knife</a>
+  </div>
+</header>
+
+<div class="journal-hero">
+  <div class="section-eyebrow">The journal</div>
+  <h1>Notes from the workshop.</h1>
+  <p>Heat treating, tool builds, steel and handle material choices — the technical side of making a knife, written up as it happens.</p>
+</div>
+
+<div class="blade-edge accent"></div>
+
+<section class="section">
+  <div class="wrap" style="padding-top:56px;">
+
+    <!-- ============================================
+         JOURNAL ENTRY CARD — copy this whole block to ADD an entry.
+         1. Give the entry its own page (copy journal-entry-template.html,
+            rename it, e.g. journal-heat-treating.html)
+         2. Point the href below at that new file
+         3. Update the tag, title, and teaser text
+         4. Remove class="coming-soon" once the real page is ready
+    ============================================= -->
+    <div class="entry-grid">
+
+      <a href="journal-heat-treating.html" class="entry-card">
+        <div class="entry-tag">Metallurgy</div>
+        <div class="entry-title">Heat Treating AEB-L: What's Actually Happening</div>
+        <div class="entry-teaser">A walkthrough of the hardening and tempering process — what the steel is doing at each stage, and why it matters for edge retention.</div>
+        <span class="entry-link">Read entry</span>
+      </a>
+
+      <div class="entry-card coming-soon">
+        <div class="entry-tag">Workshop</div>
+        <div class="entry-title">Building My Own Heat Treat Oven</div>
+        <div class="entry-teaser">The DIY build — design choices, insulation, controller setup, and what I'd do differently next time.</div>
+        <span class="entry-link">Coming soon</span>
+      </div>
+
+      <div class="entry-card coming-soon">
+        <div class="entry-tag">Materials</div>
+        <div class="entry-title">Reading a Young's Modulus Graph (For Knife Nerds)</div>
+        <div class="entry-teaser">Why stiffness numbers matter for handle materials, and how carbon fiber and composites actually compare.</div>
+        <span class="entry-link">Coming soon</span>
+      </div>
+
+    </div>
+    <!-- ============ END JOURNAL ENTRIES ============ -->
+
+  </div>
+</section>
+
+<footer>
+  <img class="footer-wordmark" src="images/brand/kofki-wordmark-footer.svg" alt="koφki — κόφκει">
+</footer>
+
+</body>
+</html>

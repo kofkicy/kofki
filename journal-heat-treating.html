@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heat Treating AEB-L: What's Actually Happening — koφki Journal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" type="image/svg+xml" href="images/brand/kofki-icon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forge-black:#14110D;
+    --bone:#F5EFE3;
+    --ember:#993C1D;
+    --ember-dim:#6E2C14;
+    --ash:#8B8377;
+    --walnut:#241C15;
+    --walnut-line:#3A2E22;
+    --hairline:rgba(245,239,227,0.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--forge-black);
+    color:var(--bone);
+    font-family:'IBM Plex Sans',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img,svg{display:block;max-width:100%;}
+
+  .wrap{max-width:1120px;margin:0 auto;padding:0 32px;}
+  .article-wrap{max-width:720px;margin:0 auto;padding:0 32px;}
+
+  /* ---- nav (same as homepage) ---- */
+  header{
+    position:sticky;top:0;z-index:20;
+    background:rgba(20,17,13,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--hairline);
+  }
+  .navbar{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px 32px;max-width:1120px;margin:0 auto;
+  }
+  .header-wordmark{height:40px;width:auto;display:block;}
+  nav ul{display:flex;gap:36px;list-style:none;}
+  nav a{
+    font-size:13px;letter-spacing:0.08em;text-transform:uppercase;
+    color:var(--ash);transition:color .2s ease;
+  }
+  nav a:hover{color:var(--bone);}
+  nav a.current{color:var(--bone);border-bottom:1px solid var(--ember);}
+  .nav-cta{
+    border:1px solid var(--ember-dim);padding:9px 18px;font-size:13px;
+    letter-spacing:0.05em;color:var(--bone);
+    transition:background .2s ease,border-color .2s ease;
+  }
+  .nav-cta:hover{background:var(--ember-dim);border-color:var(--ember);}
+
+  .blade-edge{
+    height:14px;width:100%;
+    background-image:repeating-linear-gradient(90deg, var(--hairline) 0px, var(--hairline) 1px, transparent 1px, transparent 24px);
+    background-position:bottom;background-size:100% 1px;background-repeat:no-repeat;
+    position:relative;margin:0;
+  }
+  .blade-edge::before{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--hairline);}
+  .blade-edge.accent::before{background:var(--ember-dim);}
+
+  /* ---- article ---- */
+  .breadcrumb{
+    padding:32px 0 0;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;letter-spacing:0.06em;
+    color:var(--ash);
+  }
+  .breadcrumb a{color:var(--ember);}
+  .breadcrumb a:hover{border-bottom:1px solid var(--ember);}
+
+  article{padding:24px 0 96px;}
+  .article-tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--ember);margin-bottom:16px;
+  }
+  h1{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:38px;
+    line-height:1.1;
+    letter-spacing:-0.01em;
+    margin-bottom:16px;
+  }
+  .article-meta{
+    color:var(--ash);
+    font-size:13px;
+    margin-bottom:40px;
+    padding-bottom:32px;
+    border-bottom:1px solid var(--hairline);
+  }
+  .article-body h2{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    font-size:24px;
+    margin:48px 0 16px;
+  }
+  .article-body p{
+    color:#D8D0C0;
+    font-size:16px;
+    margin-bottom:20px;
+    max-width:65ch;
+  }
+  .article-body strong{color:var(--bone);font-weight:500;}
+  .figure{
+    background:var(--bone);
+    padding:20px;
+    margin:32px 0;
+  }
+  .figure img{width:100%;height:auto;}
+  .figure-caption{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--ash);
+    margin-top:32px;
+    text-align:center;
+  }
+  .pull-note{
+    border-left:2px solid var(--ember);
+    padding:4px 0 4px 20px;
+    margin:32px 0;
+    color:var(--ash);
+    font-size:14px;
+    max-width:60ch;
+  }
+  .article-footer-nav{
+    margin-top:56px;
+    padding-top:32px;
+    border-top:1px solid var(--hairline);
+  }
+
+  footer{background:var(--bone);padding:56px 32px 40px;text-align:center;}
+  .footer-wordmark{width:100%;max-width:260px;margin:0 auto;}
+
+  @media (max-width:860px){
+    nav ul{display:none;}
+    h1{font-size:29px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <a href="index.html" class="header-brand-link">
+      <img class="header-wordmark" src="images/brand/kofki-wordmark-header.svg" alt="koφki">
+    </a>
+    <nav><ul>
+      <li><a href="index.html#work">The Work</a></li>
+      <li><a href="index.html#process">Process</a></li>
+      <li><a href="journal.html" class="current">Journal</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul></nav>
+    <a href="index.html#contact" class="nav-cta">Commission a knife</a>
+  </div>
+</header>
+
+<div class="article-wrap">
+  <div class="breadcrumb"><a href="journal.html">← Back to Journal</a></div>
+</div>
+
+<article>
+  <div class="article-wrap">
+    <div class="article-tag">Metallurgy</div>
+    <h1>Heat Treating AEB-L: What's Actually Happening</h1>
+    <div class="article-meta">
+      <!-- EDIT: update the date whenever you actually publish this -->
+      Published — Month 2026
+    </div>
+
+    <div class="article-body">
+
+      <!--
+        EVERYTHING BELOW IS PLACEHOLDER TEXT.
+        Replace each paragraph with your own explanation, in your own words.
+        Keep the <h2> subheadings as a structure, or rename them to match
+        how you actually want to break up the topic.
+      -->
+
+      <p><strong>[Placeholder — replace with your intro.]</strong> A couple of sentences on why heat treating matters and what this entry covers, in plain language for someone who isn't a metallurgist.</p>
+
+      <h2>Why heat treatment matters</h2>
+      <p>[Placeholder] Explain, in your own words, what heat treating actually does to the steel at a molecular/crystalline level, and why a blade is basically unusable without it.</p>
+
+      <div class="pull-note">
+        Pull-quote style callout — good for one key fact you want to stand out, e.g. a specific hardness (HRC) range you target for AEB-L.
+      </div>
+
+      <h2>Hardening</h2>
+      <p>[Placeholder] Describe your hardening process — target temperature, soak time, quench medium — and why you chose those specifics for AEB-L.</p>
+
+      <!--
+        FIGURE / IMAGE BLOCK
+        Once you have a real photo or graph, drop it in images/journal/
+        and point the src below at it. Delete this whole .figure block
+        if a given section doesn't need an image.
+      -->
+      <div class="figure">
+        <img src="images/knifes/hero-featured.jpg" alt="Replace with a real heat-treating photo or graph">
+      </div>
+      <p class="figure-caption">[Caption — e.g. "Blade at non-magnetic temperature, just before quench."]</p>
+
+      <h2>Tempering</h2>
+      <p>[Placeholder] Explain your tempering cycles — temperature, number of cycles, how long each — and what tempering is actually relieving in the steel's structure.</p>
+
+      <h2>What this means for the finished knife</h2>
+      <p>[Placeholder] Tie it back to the customer's experience — edge retention, toughness, how the blade will actually perform because of this process.</p>
+
+    </div>
+
+    <div class="article-footer-nav">
+      <a href="journal.html" class="entry-link" style="color:var(--ember);font-size:12px;letter-spacing:0.06em;text-transform:uppercase;">← Back to all journal entries</a>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <img class="footer-wordmark" src="images/brand/kofki-wordmark-footer.svg" alt="koφki — κόφκει">
+</footer>
+
+</body>
+</html>
