@@ -1,0 +1,58 @@
+:root{--bg:#14161a;--panel:#1c1f24;--line:#2d3138;--text:#ece7dc;--muted:#a4a8ad;--rust:#993c1d;--rust-hi:#e07a52}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1.0625rem/1.6 "Archivo",system-ui,sans-serif}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--rust-hi);outline-offset:3px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+header{border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:12px 28px;flex-wrap:wrap;max-width:1100px;margin:0 auto;padding:16px 24px}
+.bar img{height:30px;width:auto}
+nav{display:flex;gap:24px;margin-left:auto;flex-wrap:wrap}
+nav a{text-decoration:none;color:var(--muted);font-weight:500}
+nav a:hover,nav a[aria-current]{color:var(--text)}
+.btn{display:inline-block;padding:12px 20px;background:var(--rust);color:#f5efe3;text-decoration:none;border:1px solid var(--rust);border-radius:3px;font:inherit;font-weight:700;cursor:pointer}
+.btn:hover{background:#b0461f;border-color:#b0461f}
+.btn.alt{background:transparent;border-color:var(--muted)}
+.btn.alt:hover{border-color:var(--text)}
+.btn.sm{padding:8px 14px;font-size:.95rem}
+h1{font-size:clamp(2.4rem,6vw,4.25rem);line-height:1.05;letter-spacing:-.025em;font-weight:800;margin:0 0 20px}
+h2{font-size:clamp(1.7rem,3.5vw,2.3rem);line-height:1.15;letter-spacing:-.02em;font-weight:700;margin:0 0 12px}
+h3{font-size:1.15rem;margin:0 0 4px}
+.lead{color:var(--muted);max-width:36em;margin:0 0 32px;font-size:1.15rem}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding:80px 0}
+.mark{background:var(--panel);border:1px solid var(--line);padding:32px;margin:0}
+.mark svg{margin:0 auto;max-height:300px}
+.mark figcaption{color:var(--muted);font-size:.95rem;margin-top:20px}
+section{padding:64px 0;border-top:1px solid var(--line)}
+.sub{color:var(--muted);max-width:40em;margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:24px;margin-top:36px}
+.card img{width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--panel);border:1px solid var(--line);margin-bottom:12px}
+.card p{margin:0;color:var(--muted)}
+.price{color:var(--text);font-weight:700;margin-top:6px!important}
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:36px}
+.path{background:var(--panel);border:1px solid var(--line);padding:28px}
+.path p{color:var(--muted);margin:0 0 20px}
+ol.steps{list-style:none;counter-reset:s;padding:0;margin:36px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:28px}
+ol.steps li{counter-increment:s;border-top:2px solid var(--rust);padding-top:14px}
+ol.steps li::before{content:counter(s) ".";color:var(--rust-hi);font-weight:700}
+ol.steps p{color:var(--muted);margin:6px 0 0}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:36px}
+dl{margin:24px 0 0}dt{font-weight:700}dd{margin:0 0 14px;color:var(--muted)}
+form{display:grid;gap:16px}
+label{display:grid;gap:6px;font-weight:500}
+input,select,textarea{font:inherit;color:var(--text);background:var(--panel);border:1px solid var(--line);border-radius:3px;padding:11px 12px}
+textarea{min-height:140px;resize:vertical}
+.list{padding-left:1.2em;color:var(--muted);max-width:36em}
+.list li{margin-bottom:6px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.two img{border:1px solid var(--line);width:100%}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:36px}
+.gallery img{width:100%;aspect-ratio:1;object-fit:cover;background:var(--panel);border:1px solid var(--line)}
+footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-size:.95rem}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+footer img{height:28px;width:auto}
+@media (max-width:800px){.hero,.two,.contact,.paths{grid-template-columns:1fr}.hero{padding:44px 0;gap:32px}section{padding:48px 0}.bar{padding:14px 20px}nav{margin-left:0;width:100%;gap:18px}.bar .btn{margin-left:auto}}
