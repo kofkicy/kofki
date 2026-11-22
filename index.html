@@ -72,9 +72,9 @@
   <div class="wrap">
     <h2>How a custom order works</h2>
     <ol class="steps">
-      <li><h3>Tell me what you need</h3><p>How you cook, carry or use your knife. A rough sketch or a few reference photos is plenty.</p></li>
-      <li><h3>We design it</h3><p>We recommend the geometry, steel, dimensions and handle, then send a quote and timeline, usually within a few days.</p></li>
-      <li><h3>We build it by hand</h3><p>Shaped, ground, heat-treated, finished and sharpened in our Cyprus workshop, with progress photos along the way.</p></li>
+      <li><h3>Tell us what you need</h3><p>A rough sketch or a few reference photos is plenty. You can also just describe the blade, for example: “Chef gyuto, 220 mm, olive wood handle.”</p></li>
+      <li><h3>We design it</h3><p>We recommend the edge geometry, steel type, heat treatment and other details, then send a quote and timeline, usually within a few days.</p></li>
+      <li><h3>We build it by hand</h3><p>Shaped, ground, heat-treated, finished and sharpened in our workshop in Cyprus.</p></li>
       <li><h3>It ships to you</h3><p>Hand-sharpened, with a fitted saya or sheath. Free shipping in Cyprus, standard shipping across the EU, and other countries on request.</p></li>
     </ol>
   </div>
@@ -90,12 +90,15 @@
         <dt>Workshop</dt><dd>Cyprus (Nicosia and Limassol)</dd>
         <dt>Shipping</dt><dd>Free in Cyprus. Standard across the EU. Other countries on request.</dd>
       </dl>
-      <form id="f">
+      <form id="f" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="hidden" name="_subject" value="New enquiry from kofki.cy">
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
         <label>Name<input name="name" required autocomplete="name"></label>
         <label>Email<input name="email" type="email" required autocomplete="email"></label>
         <label>I’m asking about<select name="topic"><option>Buy a design</option><option>Custom order</option><option>Heat treatment</option><option>Something else</option></select></label>
-        <label>What do you need?<textarea name="msg" required></textarea></label>
+        <label>What do you need?<textarea name="message" required></textarea></label>
         <button class="btn" type="submit">Send enquiry</button>
+        <p id="status" role="status" aria-live="polite"></p>
       </form>
     </div>
   </div>
@@ -110,12 +113,17 @@
 const f=document.getElementById('f');
 const t=new URLSearchParams(location.search).get('topic');
 if(t)f.topic.value=t;
-document.querySelectorAll('[data-topic]').forEach(a=>a.addEventListener('click',()=>{f.topic.value=a.dataset.topic;f.msg.value=a.dataset.item?'I’m interested in the '+a.dataset.item+'.':'';}));
-f.addEventListener('submit',e=>{
+document.querySelectorAll('[data-topic]').forEach(a=>a.addEventListener('click',()=>{f.topic.value=a.dataset.topic;f.message.value=a.dataset.item?'I’m interested in the '+a.dataset.item+'.':'';}));
+f.addEventListener('submit',async e=>{
   e.preventDefault();
-  const d=new FormData(f);
-  const body=d.get('msg')+'\n\n'+d.get('name')+' ('+d.get('email')+')';
-  location.href='mailto:info@kofki.cy?subject='+encodeURIComponent(d.get('topic'))+'&body='+encodeURIComponent(body);
+  const b=f.querySelector('button[type=submit]'),st=document.getElementById('status');
+  b.disabled=true;st.textContent='Sending…';
+  try{
+    const r=await fetch(f.action,{method:'POST',body:new FormData(f),headers:{Accept:'application/json'}});
+    if(!r.ok)throw new Error();
+    f.reset();st.textContent='Thanks, your message has been sent. We’ll reply soon.';
+  }catch(err){st.textContent='Something went wrong. Please try again or email info@kofki.cy.';}
+  b.disabled=false;
 });
 </script>
 </body>
