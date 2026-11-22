@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heat Treatment — koφki</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" type="image/svg+xml" href="images/brand/kofki-icon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forge-black:#14110D;
+    --bone:#F5EFE3;
+    --ember:#993C1D;
+    --ember-dim:#6E2C14;
+    --ash:#8B8377;
+    --walnut:#241C15;
+    --walnut-line:#3A2E22;
+    --hairline:rgba(245,239,227,0.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--forge-black);
+    color:var(--bone);
+    font-family:'IBM Plex Sans',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img,svg{display:block;max-width:100%;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 32px;}
+  header{
+    position:sticky;top:0;z-index:20;
+    background:rgba(20,17,13,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--hairline);
+  }
+  .navbar{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px 32px;max-width:1120px;margin:0 auto;
+  }
+  .header-wordmark{height:40px;width:auto;display:block;}
+  nav ul{display:flex;gap:36px;list-style:none;}
+  nav a{
+    font-size:13px;letter-spacing:0.08em;text-transform:uppercase;
+    color:var(--ash);transition:color .2s ease;
+  }
+  nav a:hover{color:var(--bone);}
+  nav a.current{color:var(--bone);border-bottom:1px solid var(--ember);}
+  .nav-cta{
+    border:1px solid var(--ember-dim);padding:9px 18px;font-size:13px;
+    letter-spacing:0.05em;color:var(--bone);
+    transition:background .2s ease,border-color .2s ease;
+  }
+  .nav-cta:hover{background:var(--ember-dim);border-color:var(--ember);}
+  .blade-edge{
+    height:14px;width:100%;
+    background-image:repeating-linear-gradient(90deg,var(--hairline) 0px,var(--hairline) 1px,transparent 1px,transparent 24px);
+    background-position:bottom;background-size:100% 1px;background-repeat:no-repeat;
+    position:relative;margin:0;
+  }
+  .blade-edge::before{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--hairline);}
+  .blade-edge.accent::before{background:var(--ember-dim);}
+  .hero{
+    padding:88px 32px 72px;
+    max-width:1120px;margin:0 auto;
+    display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;
+    letter-spacing:0.14em;text-transform:uppercase;color:var(--ember);
+    margin-bottom:16px;
+  }
+  h1{
+    font-family:'Fraunces',serif;font-weight:600;font-size:48px;
+    line-height:1.06;letter-spacing:-0.01em;margin-bottom:22px;
+  }
+  .hero-copy p{color:var(--ash);font-size:16px;max-width:58ch;margin-bottom:18px;}
+  .hero-copy p:last-of-type{margin-bottom:30px;}
+  .hero-photo{
+    background:var(--bone);padding:18px;
+    box-shadow:0 24px 60px rgba(0,0,0,0.35);
+  }
+  .hero-photo img{width:100%;height:auto;mix-blend-mode:multiply;}
+  .photo-caption{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;
+    color:#5A5650;text-align:center;margin-top:12px;
+  }
+  .btn-primary{
+    display:inline-block;background:var(--ember);color:var(--forge-black);
+    font-weight:500;padding:14px 26px;font-size:14px;
+    transition:background .2s ease;
+  }
+  .btn-primary:hover{background:#B84E27;}
+  .section{padding:76px 0 96px;}
+  .section-inner{display:grid;grid-template-columns:0.8fr 1.2fr;gap:64px;}
+  .section-eyebrow{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;
+    letter-spacing:0.12em;text-transform:uppercase;color:var(--ember);
+    margin-bottom:10px;
+  }
+  h2{font-family:'Fraunces',serif;font-weight:500;font-size:32px;line-height:1.15;}
+  .service-copy p{color:#D8D0C0;font-size:15px;margin-bottom:18px;max-width:66ch;}
+  .service-note{
+    border-left:2px solid var(--ember);padding:4px 0 4px 20px;
+    margin-top:28px;color:var(--ash);font-size:14px;max-width:60ch;
+  }
+  footer{background:var(--bone);padding:56px 32px 40px;text-align:center;}
+  .footer-wordmark{width:100%;max-width:260px;margin:0 auto;}
+  @media (max-width:860px){
+    nav ul{display:none;}
+    .hero,.section-inner{grid-template-columns:1fr;gap:36px;}
+    .hero{padding-top:64px;}
+    h1{font-size:36px;}
+    h2{font-size:28px;}
+  }
+  @media (max-width:560px){h1{font-size:32px;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <a href="index.html" class="header-brand-link">
+      <img class="header-wordmark" src="images/brand/kofki-wordmark-header.svg" alt="koφki">
+    </a>
+    <nav><ul>
+      <li><a href="index.html#work">The Work</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="heat-treatment.html" class="current">Heat Treatment</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul></nav>
+    <a href="index.html#contact" class="nav-cta">Enquire about a job</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow">Workshop service</div>
+    <h1>Heat treatment for blades and smaller components.</h1>
+    <p>Heat treatment is a controlled process that changes the properties of steel through carefully managed heating and cooling. It plays an essential role in how a finished blade or component performs.</p>
+    <p>At koφki, I offer heat treatment for blades, tools and smaller metal or engineering components. Each job is considered individually, with the material, dimensions and intended application taken into account before confirming whether it is suitable for the service.</p>
+    <a href="index.html#contact" class="btn-primary">Discuss a heat-treatment job</a>
+  </div>
+
+  <div>
+    <!-- IMAGE: upload your photograph to images/heat-treatment/ and keep this filename,
+         or change the src below to match the filename you choose. -->
+    <div class="hero-photo">
+      <img src="images/heat-treatment/heat-treatment-workshop.jpg" alt="Heat treatment work being carried out in the koφki workshop">
+      <div class="photo-caption">Heat treatment at the koφki workshop</div>
+    </div>
+  </div>
+</section>
+
+<div class="blade-edge accent"></div>
+
+<section class="section">
+  <div class="wrap section-inner">
+    <div>
+      <div class="section-eyebrow">The service</div>
+      <h2>Considered case by case.</h2>
+    </div>
+    <div class="service-copy">
+      <p>The right heat treatment depends on the steel and what the finished part needs to do. Before accepting a job, I’ll discuss the material, the component and its intended use so that the requirements are clear.</p>
+      <p>The service is intended for blades, tools and smaller engineering components. Large industrial parts and components outside the capacity of the workshop are not suitable.</p>
+      <div class="service-note">If you have a blade or a smaller steel component that needs heat treatment, get in touch with its material and intended application. I can review the details and let you know whether I can take it on.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img class="footer-wordmark" src="images/brand/kofki-wordmark-footer.svg" alt="koφki — κόφκει">
+</footer>
+
+</body>
+</html>
